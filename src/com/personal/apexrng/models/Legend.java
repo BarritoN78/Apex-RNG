@@ -5,9 +5,11 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class Legend {
 	@Id
 	@Column(columnDefinition = "serial")

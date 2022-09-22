@@ -6,9 +6,11 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@NoArgsConstructor
 public class DropLocation {
 	@Id
 	@Column(columnDefinition = "serial")

@@ -89,7 +89,7 @@ INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Market');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Hydro Dam');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Repulsor');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Caustic Treatment');
-INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'map_id Room');
+INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Map Room');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Supply Ship');
 --Stormpoint
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 3, 'North Pad');
