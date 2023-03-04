@@ -69,7 +69,8 @@ public class Main {
 		ApexMap kingsCanyon = new ApexMap(2, "Kings Canyon");
 		ApexMap stormpoint = new ApexMap(3, "Stormpoint");
 		ApexMap worldsEdge = new ApexMap(4, "Worlds Edge");
-		String userInp = "", dropKC = "", dropSP = "", dropWE = "";
+		ApexMap brokenMoon = new ApexMap(5, "Broken Moon");
+		String userInp = "", dropKC = "", dropSP = "", dropWE = "", dropBM = "";
 
 		/* Function */
 		// Adjust list of used legends for every match after the first three
@@ -85,15 +86,18 @@ public class Main {
 			dropKC = dropServ.getDropLocationByMap(kingsCanyon, rng.nextInt(0, 22)).getName();
 			dropSP = dropServ.getDropLocationByMap(stormpoint, rng.nextInt(0, 19)).getName();
 			dropWE = dropServ.getDropLocationByMap(worldsEdge, rng.nextInt(0, 22)).getName();
+			dropBM = dropServ.getDropLocationByMap(brokenMoon, rng.nextInt(0, 15)).getName();
 		} else { // 25% chance of universal location
 			dropKC = dropServ.getDropLocationByMap(misc, rng.nextInt(0, 4)).getName();
 			dropSP = dropKC;
 			dropWE = dropKC;
+			dropBM = dropKC;
 		}
 		loadout += "\nDrop Locations:\n";
 		loadout += "King's Canyon: " + dropKC + "\n";
 		loadout += "Stormpoint: " + dropSP + "\n";
 		loadout += "World's Edge: " + dropWE + "\n";
+		loadout += "Broken Moon: " + dropBM + "\n";
 
 		// Generate a loadout for each team member
 		for (int i = 0; i < teammates; i++) {
@@ -103,7 +107,7 @@ public class Main {
 			loadout += "\n" + playerNames[i] + "'s Loadout:\n";
 			
 			while (!legendChosen) {
-				chosenLegend = legendServ.getLegend(rng.nextInt(1, 23));
+				chosenLegend = legendServ.getLegend(rng.nextInt(1, 24));
 				if(!usedLegends.contains(chosenLegend)) {
 					legendChosen = true;
 					usedLegends.add(chosenLegend);
@@ -115,8 +119,8 @@ public class Main {
 			loadout += "Legend: " + chosenLegend.getName() + "\n";
 			
 			while(!weaponsChosen) {
-				weapon1 = weaponServ.getWeapon(rng.nextInt(1, 29));
-				weapon2 = weaponServ.getWeapon(rng.nextInt(1, 29));
+				weapon1 = weaponServ.getWeapon(rng.nextInt(1, 30));
+				weapon2 = weaponServ.getWeapon(rng.nextInt(1, 30));
 				
 				if(!weapon1.equals(weapon2)) {
 					if(!weapon1.getAmmoType().equals(weapon2.getAmmoType())) {
