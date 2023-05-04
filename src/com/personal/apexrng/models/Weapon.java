@@ -19,4 +19,14 @@ public class Weapon {
 	private String ammoType;
 	private String effectiveRange;
 	private boolean isDropWeapon;
+	
+	/*Constructor for cloning*/
+	public Weapon(Weapon original) {
+		this.id = original.id;
+		this.name = original.name;
+		this.category = original.category;
+		this.ammoType = original.ammoType;
+		this.effectiveRange = original.effectiveRange;
+		this.isDropWeapon = original.isDropWeapon;
+	}
 }

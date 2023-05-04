@@ -1,5 +1,6 @@
 package com.personal.apexrng.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,8 +16,8 @@ public class LegendService {
 	private Random rng;
 	
 	public LegendService(LegendRepository legendRepo) {
-		this.legendRepo = legendRepo;	
-		this.allLegends = legendRepo.findAll();
+		this.legendRepo = legendRepo;
+		this.allLegends = new ArrayList<Legend>();
 		this.rng = new Random();		
 	}
 	
@@ -25,6 +26,10 @@ public class LegendService {
 	}
 	
 	public Legend getLegend() {
+		//Retrieves legends from database if needed
+		if(allLegends.isEmpty()) {
+			allLegends = legendRepo.findAll();
+		}
 		return allLegends.get(rng.nextInt(0, allLegends.size()));
 	}
 }

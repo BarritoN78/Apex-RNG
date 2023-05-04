@@ -1,5 +1,6 @@
 package com.personal.apexrng.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
@@ -15,8 +16,8 @@ public class WeaponService {
 	private Random rng;
 	
 	public WeaponService(WeaponRepository weaponRepo) {
-		this.weaponRepo = weaponRepo;	
-		this.allWeapons = weaponRepo.findAll();
+		this.weaponRepo = weaponRepo;
+		this.allWeapons = new ArrayList<Weapon>();
 		this.rng = new Random();
 	}
 	
@@ -25,6 +26,11 @@ public class WeaponService {
 	}
 	
 	public Weapon getWeapon() {
+		//Retrieve weapons from database if needed
+		if(allWeapons.isEmpty()) {
+			allWeapons = weaponRepo.findAll();
+		}
+		
 		Weapon weaponResult;
 		List<Weapon> groundWeapons;
 		
@@ -33,11 +39,16 @@ public class WeaponService {
 		
 		//Choosing weapon from filtered list
 		int weaponId = rng.nextInt(0 , groundWeapons.size());
-		weaponResult = groundWeapons.get(weaponId);
+		weaponResult = new Weapon(groundWeapons.get(weaponId));
+		
+		//Adding the 10% chance for no attachments
+		if(rng.nextInt(0, 10) == 9) {
+			weaponResult.setName(weaponResult.getName() + "(No Attachments)");
+		}
 		
 		//Adding the 10% chance for a drop weapon
 		if(rng.nextInt(0, 10) == 9) {
-			weaponResult.setName(weaponResult.getName() + "(Drop Weapon)");
+			weaponResult.setName(weaponResult.getName() + " / Drop Weapon");
 		}
 		
 		return weaponResult;
