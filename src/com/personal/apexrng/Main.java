@@ -70,7 +70,8 @@ public class Main {
 		ApexMap stormpoint = new ApexMap(3, "Stormpoint");
 		ApexMap worldsEdge = new ApexMap(4, "Worlds Edge");
 		ApexMap brokenMoon = new ApexMap(5, "Broken Moon");
-		String userInp = "", dropKC = "", dropSP = "", dropWE = "", dropBM = "";
+		ApexMap olympus = new ApexMap(6, "Olympus");
+		String userInp = "", dropKC = "", dropSP = "", dropWE = "", dropBM = "", dropOL = "";
 
 		/* Function */
 		// Adjust list of used legends for every match after the first three
@@ -83,21 +84,24 @@ public class Main {
 		// Generate a drop location for the team
 		// 75% chance of named location
 		if (rng.nextInt(0, 101) < 75) {
-			dropKC = dropServ.getDropLocationByMap(kingsCanyon, rng.nextInt(0, 22)).getName();
-			dropSP = dropServ.getDropLocationByMap(stormpoint, rng.nextInt(0, 19)).getName();
-			dropWE = dropServ.getDropLocationByMap(worldsEdge, rng.nextInt(0, 22)).getName();
-			dropBM = dropServ.getDropLocationByMap(brokenMoon, rng.nextInt(0, 15)).getName();
+			dropKC = dropServ.getDropLocationByMap(kingsCanyon).getName();
+			dropSP = dropServ.getDropLocationByMap(stormpoint).getName();
+			dropWE = dropServ.getDropLocationByMap(worldsEdge).getName();
+			dropBM = dropServ.getDropLocationByMap(brokenMoon).getName();
+			dropOL = dropServ.getDropLocationByMap(olympus).getName();
 		} else { // 25% chance of universal location
-			dropKC = dropServ.getDropLocationByMap(misc, rng.nextInt(0, 4)).getName();
+			dropKC = dropServ.getDropLocationByMap(misc).getName();
 			dropSP = dropKC;
 			dropWE = dropKC;
 			dropBM = dropKC;
+			dropOL = dropKC;
 		}
 		loadout += "\nDrop Locations:\n";
 		loadout += "King's Canyon: " + dropKC + "\n";
 		loadout += "Stormpoint: " + dropSP + "\n";
 		loadout += "World's Edge: " + dropWE + "\n";
 		loadout += "Broken Moon: " + dropBM + "\n";
+		loadout += "Olympus: " + dropOL + "\n";
 
 		// Generate a loadout for each team member
 		for (int i = 0; i < teammates; i++) {
@@ -107,7 +111,7 @@ public class Main {
 			loadout += "\n" + playerNames[i] + "'s Loadout:\n";
 			
 			while (!legendChosen) {
-				chosenLegend = legendServ.getLegend(rng.nextInt(1, 24));
+				chosenLegend = legendServ.getLegend();
 				if(!usedLegends.contains(chosenLegend)) {
 					legendChosen = true;
 					usedLegends.add(chosenLegend);
@@ -119,10 +123,10 @@ public class Main {
 			loadout += "Legend: " + chosenLegend.getName() + "\n";
 			
 			while(!weaponsChosen) {
-				weapon1 = weaponServ.getWeapon(rng.nextInt(1, 30));
-				weapon2 = weaponServ.getWeapon(rng.nextInt(1, 30));
+				weapon1 = weaponServ.getWeapon();
+				weapon2 = weaponServ.getWeapon();
 				
-				if(!weapon1.equals(weapon2)) {
+				if(weapon1.getId() != weapon2.getId()) {
 					if(!weapon1.getAmmoType().equals(weapon2.getAmmoType())) {
 						if(!(weapon1.getEffectiveRange().contains("Long") && weapon2.getEffectiveRange().contains("Long"))) {
 							weaponsChosen = true;
@@ -131,17 +135,9 @@ public class Main {
 				}
 			}
 			
-			if (weapon1.isDropWeapon()) {
-				loadout += "Weapon 1: Drop Weapon\n";
-			} else {
-				loadout += "Weapon 1: " + weapon1.getName() + "\n";
-			}
-			
-			if (weapon2.isDropWeapon()) {
-				loadout += "Weapon 2: Drop Weapon\n";
-			} else {
-				loadout += "Weapon 2: " + weapon2.getName() + "\n";
-			}
+			//Adding to loadout
+			loadout += "Weapon 1: " + weapon1.getName() + "\n";
+			loadout += "Weapon 2: " + weapon2.getName() + "\n";
 		}
 		
 		System.out.println(loadout);

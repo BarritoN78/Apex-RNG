@@ -63,6 +63,7 @@ INSERT INTO apex_map(id, name) VALUES(default, 'Kings Canyon');
 INSERT INTO apex_map(id, name) VALUES(default, 'Stormpoint');
 INSERT INTO apex_map(id, name) VALUES(default, 'Worlds Edge');
 INSERT INTO apex_map(id, name) VALUES(default, 'Broken Moon');
+INSERT INTO apex_map(id, name) VALUES(default, 'Olympus');
 
 --Drop Locations
 
@@ -71,6 +72,7 @@ INSERT INTO drop_location(id, map_id, name) VALUES(default, 1, 'Blue Zone');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 1, 'Straight Down');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 1, 'Last To Leave');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 1, 'Four Corners');
+INSERT INTO drop_location(id, map_id, name) VALUES(default, 1, 'Predator Snipe');
 --Kings Canyon
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Crash Site');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 2, 'Artillery');
@@ -154,3 +156,25 @@ INSERT INTO drop_location(id, map_id, name) VALUES(default, 5, 'Cultivation');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 5, 'Terraformer');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 5, 'Atmostation');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 5, 'Bionomics');
+--Olympus
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Estates');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Hammond Labs');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Solar Array');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Bonsai Plaza');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Orbital Cannon');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Docks');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Carrier');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Fight Night');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Power Grid');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Rift');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Turbine');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Energy Depot');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Gardens');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Clinic');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Oasis');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Grow Towers');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Elysium');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Hydroponics');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Phase Driver');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Icarus');
+INSERT INTO drop_location(id, map_id, name) VALUES (default, 6, 'Terminal');
