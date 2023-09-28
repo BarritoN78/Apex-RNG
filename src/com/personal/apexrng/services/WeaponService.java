@@ -15,17 +15,50 @@ public class WeaponService {
 	private List<Weapon> allWeapons;
 	private Random rng;
 	
+	/**
+	 * Constructor for Spring Boot dependency injection
+	 * @param weaponRepo
+	 */
 	public WeaponService(WeaponRepository weaponRepo) {
 		this.weaponRepo = weaponRepo;
 		this.allWeapons = new ArrayList<Weapon>();
 		this.rng = new Random();
 	}
 	
+	/**
+	 * Returns a weapon object with the given id
+	 * @param id
+	 * @return
+	 */
 	public Weapon getWeaponByID(int id) {
 		return weaponRepo.findById(id).get();
 	}
 	
+	/**
+	 * Returns a random weapon with added modifiers
+	 * @return
+	 */
 	public Weapon getWeapon() {
+		Weapon weaponResult;
+		
+		weaponResult = addMods(weaponSelector());
+		
+		return weaponResult;
+	}
+	
+	/**
+	 * Returns a random weapon with no modifiers
+	 * @return
+	 */
+	public Weapon getWeaponNoMod() {
+		return weaponSelector();
+	}
+	
+	/**
+	 * Selects a weapon from a filtered list using a random number generator
+	 * @return
+	 */
+	public Weapon weaponSelector() {
 		//Retrieve weapons from database if needed
 		if(allWeapons.isEmpty()) {
 			allWeapons = weaponRepo.findAll();
@@ -41,17 +74,30 @@ public class WeaponService {
 		int weaponId = rng.nextInt(0 , groundWeapons.size());
 		weaponResult = new Weapon(groundWeapons.get(weaponId));
 		
+		return weaponResult;
+	}
+	
+	/**
+	 * Adds modifications to the given weapon object
+	 * @param weaponMod
+	 * @return
+	 */
+	public Weapon addMods(Weapon weaponMod) {
+		String modifier = "";
+		
 		//Adding the 10% chance for no attachments
 		if(rng.nextInt(0, 10) == 9) {
-			weaponResult.setName(weaponResult.getName() + "(No Attachments)");
+			modifier += "(No Attachments)";
 		}
 		
 		//Adding the 10% chance for a drop weapon
 		if(rng.nextInt(0, 10) == 9) {
-			weaponResult.setName(weaponResult.getName() + " / Drop Weapon");
+			modifier += "(Drop Weapon)";
 		}
 		
-		return weaponResult;
+		weaponMod.setModifiers(modifier);
+		
+		return weaponMod;
 	}
 
 }

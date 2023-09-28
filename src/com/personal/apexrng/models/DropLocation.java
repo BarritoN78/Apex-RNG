@@ -18,4 +18,16 @@ public class DropLocation {
 	@ManyToOne
 	private ApexMap map;
 	private String name;
+	private String imgUrl;
+	
+	/**
+	 * Constructor for cloning
+	 * @param dl
+	 */
+	public DropLocation(DropLocation dl) {
+		this.id = dl.getId();
+		this.map = dl.getMap();
+		this.name = dl.getName();
+		this.imgUrl = dl.getImgUrl();
+	}
 }

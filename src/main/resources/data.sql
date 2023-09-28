@@ -23,20 +23,21 @@ INSERT INTO legend(id, name) VALUES(default, 'Mad Maggie');
 INSERT INTO legend(id, name) VALUES(default, 'Newcastle');
 INSERT INTO legend(id, name) VALUES(default, 'Vantage');
 INSERT INTO legend(id, name) VALUES(default, 'Catalyst');
+INSERT INTO legend(id, name) VALUES(default, 'Ballistic');
 
 --Weapons
 
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Havoc', 'Assault Rifle', 'Energy', 'Short-Mid', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Flatline', 'Assault Rifle', 'Heavy', 'Mid', false);
-INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Hemlock', 'Assault Rifle', 'Heavy', 'Mid-Long', true);
+INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Hemlock', 'Assault Rifle', 'Heavy', 'Mid-Long', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'R-301', 'Sub-machine Gun', 'Light', 'Mid', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Alternator', 'Sub-machine Gun', 'Light', 'Short-Mid', false);
-INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Prowler', 'Sub-machine Gun', 'Heavy', 'Short', false);
+INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Prowler', 'Sub-machine Gun', 'Heavy', 'Short', true);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'R-99', 'Sub-machine Gun', 'Light', 'Short', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Volt', 'Sub-machine Gun', 'Energy', 'Short-Mid', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'CAR', 'Sub-machine Gun', 'Light/Heavy', 'Short', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Devotion', 'Light Machine Gun', 'Energy', 'Short-Mid', false);
-INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'L-Star', 'Light Machine Gun', 'Energy', 'Short', false);
+INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'L-Star', 'Light Machine Gun', 'Energy', 'Short', true);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Spitfire', 'Light Machine Gun', 'Light', 'Short-Mid', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Rampage', 'Light Machine Gun', 'Heavy', 'Mid-Long', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'G7 Scout', 'Marksman Rifle', 'Light', 'Mid-Long', false);
@@ -52,7 +53,7 @@ INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapo
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Mozambique', 'Shotgun', 'Shotgun', 'Short', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Mastiff', 'Shotgun', 'Shotgun', 'Short', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'P2020', 'Pistol', 'Light', 'Short', false);
-INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'RE-45', 'Pistol', 'Light', 'Short', true);
+INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'RE-45', 'Pistol', 'Light', 'Short', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Wingman', 'Pistol', 'Sniper', 'Short-Mid', false);
 INSERT INTO weapon(id, name, category, ammo_type, effective_range, is_drop_weapon) VALUES(default, 'Nemesis', 'Assault Rifle', 'Energy', 'Mid', false);
 
@@ -124,8 +125,8 @@ INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Climatizer');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Lava Fissure');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Landslide');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Countdown');
-INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Fragment East');
-INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Fragment West');
+INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Fragment');
+INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Monument');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'The Epicenter');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Overlook');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Staging');
@@ -137,8 +138,9 @@ INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Lava Siphon');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Launch Site');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Lava City');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'The Dome');
+INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Stacks');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'Geyser Vault');
-INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'East of Fragment East');
+INSERT INTO drop_location(id, map_id, name) VALUES(default, 4, 'East of Fragment');
 --Broken Moon
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 5, 'Alpha Base');
 INSERT INTO drop_location(id, map_id, name) VALUES(default, 5, 'Backup Atmo');

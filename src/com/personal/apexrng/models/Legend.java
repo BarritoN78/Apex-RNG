@@ -15,4 +15,5 @@ public class Legend {
 	@Column(columnDefinition = "serial")
 	private int id;
 	private String name;
+	private String imgUrl;
 }
