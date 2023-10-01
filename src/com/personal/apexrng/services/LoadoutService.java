@@ -125,7 +125,7 @@ public class LoadoutService {
 				weap1 = weapServ.getWeapon();
 				weap2 = weapServ.getWeapon();
 				if (legend.getName().equals("Ballistic")) { //Ballistic is the only character that can carry 3 weapons
-					weapSling = weapServ.getWeaponNoMod();
+					weapSling = weapServ.getWeaponSling();
 				}
 
 				if (weap1.getId() != weap2.getId()) { //Main weapons are different

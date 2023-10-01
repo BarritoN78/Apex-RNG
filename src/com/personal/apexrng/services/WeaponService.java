@@ -50,8 +50,10 @@ public class WeaponService {
 	 * Returns a random weapon with no modifiers
 	 * @return
 	 */
-	public Weapon getWeaponNoMod() {
-		return weaponSelector();
+	public Weapon getWeaponSling() {
+		Weapon weapSling = weaponSelector();
+		weapSling.setSling(true);
+		return weapSling;
 	}
 	
 	/**
